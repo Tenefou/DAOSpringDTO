@@ -80,7 +80,7 @@ public class Personne {
     public void setRole(int role) {
         this.role = role;
     }
-
+    
     @Override
     public String toString() {
         return "Personne{" +
@@ -91,5 +91,5 @@ public class Personne {
                 ", mdp='" + mdp + '\'' +
                 ", role=" + role +
                 '}';
-    }
+    }    
 }
