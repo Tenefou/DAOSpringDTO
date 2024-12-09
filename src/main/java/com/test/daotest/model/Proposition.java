@@ -1,11 +1,17 @@
 package com.test.daotest.model;
 
+import jakarta.persistence.FetchType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+
 public class Proposition {
     private int correct;
     private String libelle;
     private Long id;
     
-
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "question_id")
+    private Question questions;
 
     public Proposition(){}
 
@@ -41,8 +47,18 @@ public class Proposition {
         this.id = id;
     }
 
+    public Question getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(Question questions) {
+        this.questions = questions;
+    }
+
     @Override
     public String toString() {
-        return "Proposition [correct=" + correct + ", libelle=" + libelle + ", id=" + id + "]";
+        return "Proposition [correct=" + correct + ", libelle=" + libelle + ", id=" + id + ", questions=" + questions
+                + "]";
     }
+    
 }
