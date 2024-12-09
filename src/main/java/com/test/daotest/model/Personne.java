@@ -1,5 +1,9 @@
 package com.test.daotest.model;
 
+import java.util.List;
+
+import jakarta.persistence.OneToMany;
+
 public class Personne {
     private Long id;
 
@@ -12,6 +16,9 @@ public class Personne {
     private String mdp;
 
     private int role;
+
+    @OneToMany(mappedBy = "personne")
+    private List<Choisir> choix;
 
     public Personne() {
     }
